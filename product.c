@@ -78,6 +78,7 @@ int selectMenu(){
     printf("4. 삭제\n");
     printf("5. 별점이 4점 이상인 제품\n");
     printf("6. 별점이 2점 이하인 제품\n");
+    printf("7. 저장\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 메뉴는? ");
     scanf("%d", &menu);
@@ -86,13 +87,33 @@ int selectMenu(){
 
 void saveData(Product *p, int count){
  	FILE *fp;
- 	fp = fopen("score.txt", "wt");
+ 	fp = fopen("product.txt", "wt");
 
  	for(int i =0; i<count; i++){
-	if(p[i].kor == -1) continue;
-	fprintf(fp, "%s %d %d %d\n", p[i].name, p[i].weight, p[i].price, p[i].num);
-  }
-  fclose(fp);
-  printf("=>저장됨!\n");
+		if(p[i].weight == -1) continue;
+		fprintf(fp, "%s %d %d %d\n", p[i].name, p[i].weight, p[i].price, p[i].num);
+	}
+	fclose(fp);
+	printf("=>저장됨!\n");
 }
 
+int loadData(Product *p){
+ 	int count =0, i=0;
+ 	FILE *fp;
+ 	fp = fopen("product.txt", "rt");
+ 	if(fp == NULL){
+		printf("=> 파일 없음\n");
+  	}else{
+		for(; i<100; i++){
+			fscanf(fp, "%s", p[i].name);
+			if(feof(fp)) break;
+			fscanf(fp, "%d", &p[i].weight);
+			fscanf(fp, "%d", &p[i].price);
+			fscanf(fp, "%d", &p[i].num);
+		}
+		printf("=> 로딩성공!\n");
+	}
+	fclose(fp);
+
+	return i;
+}
