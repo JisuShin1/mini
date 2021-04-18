@@ -3,10 +3,10 @@
 #include "product.h"
 #include "manager.h"
 
-int main(){ 
+int main(){
     Product slist[20];
     int index=0;
-    int count=0,index =0, menu;
+    int count=0, menu;
 
     count = loadData(slist);
     index = count;
@@ -18,12 +18,12 @@ int main(){
           break;
         }
         if(menu==1 || menu==3 || menu==4)
-            if(count==0){   
+            if(count==0){
                 printf("데이터가 없습니다.\n");
                 continue;
-            }
+ }
         if(menu==2){
-            createProduct(&slist[index++]); 
+            createProduct(&slist[index++]);
             count=1;
         }
         else if(menu==1) {
@@ -40,15 +40,19 @@ int main(){
           deleteProduct(&slist[no-1]);
           count=0;
         }
-	else if(menu==5){
-		bestProduct(slist, index);
-	}
-	else if(menu==6){
-		worstProduct(slist, index);
-	}
-	else if(menu==7){
-		saveData(slist, index);
-	}
+        else if(menu==5){
+                bestProduct(slist, index);
+        }
+        else if(menu==6){
+                worstProduct(slist, index);
+        }
+        else if(menu==7){
+                saveData(slist, index);
+        }
+        else if(menu==8){
+          searchData(slist, index);
+        }
     }
     return 0;
 }
+

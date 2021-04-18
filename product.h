@@ -16,4 +16,4 @@ int UpdateProduct(Product *p); //제품을 정보를 수정하는 함수
 int deleteProduct(Product *p); //제품을 삭제하는 함수
 int selectMenu(); //메뉴를 선택하는 함수
 void saveData(Product *p, int count);
-int loadData(product *p);
+int loadData(Product *p);
