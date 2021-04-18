@@ -14,6 +14,9 @@ void listProduct(Product *p, int count); // 전체 등록된 제품 리스트 �
 int selectDataNo(Product *p, int count); // 번호 선택
 int UpdateProduct(Product *p); //제품을 정보를 수정하는 함수
 int deleteProduct(Product *p); //제품을 삭제하는 함수
-int selectMenu(); //메뉴를 선택하는 함수
+void bestProduct(Product *p, int count); // 별점 4점 이상인 제품 리스트 출력
+void worstProduct(Product *p, int count); // 별점 2점 이하인 제품 리스트 출력
 void saveData(Product *p, int count);
 int loadData(Product *p);
+void searchData(Product *p, int count);
+
