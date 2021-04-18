@@ -6,7 +6,9 @@
 int main(){ 
     Product slist[20];
     int index=0;
-    int count=0, menu;
+    int count=0,index =0, menu;
+
+    count = loadData(slist);
     index = count;
 
     while(1){
@@ -44,8 +46,9 @@ int main(){
 	else if(menu==6){
 		worstProduct(slist, index);
 	}
-
-
+	else if(menu==7){
+		saveData(slist, index);
+	}
     }
     return 0;
 }
